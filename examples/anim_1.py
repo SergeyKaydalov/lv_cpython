@@ -12,12 +12,16 @@ except ImportError:
 import time
 
 lv.init()
-disp = lv.sdl_window_create(480, 320)
+#disp = lv.sdl_window_create(480, 320)
+
+disp = lv.linux_fbdev_create()
+lv.linux_fbdev_set_file(disp, "/dev/fb0")
+
 group = lv.group_create()
 lv.group_set_default(group)
-mouse = lv.sdl_mouse_create()
-keyboard = lv.sdl_keyboard_create()
-lv.indev_set_group(keyboard, group)
+#mouse = lv.sdl_mouse_create()
+#keyboard = lv.sdl_keyboard_create()
+#lv.indev_set_group(keyboard, group)
 
 
 def anim_x(a, v):
@@ -55,7 +59,7 @@ lv.obj_set_pos(label, 100, 10)
 sw = lv.switch_create(lv.scr_act())
 lv.obj_center(sw)
 lv.obj_add_state(sw, lv.STATE_CHECKED)
-lv.obj_add_event(sw, lambda e: sw_event_cb(e, label), lv.EVENT_VALUE_CHANGED)
+lv.obj_add_event(sw, lambda e: sw_event_cb(e, label), lv.EVENT_VALUE_CHANGED, None)
 
 
 start = time.time()

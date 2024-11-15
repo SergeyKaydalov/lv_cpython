@@ -38,7 +38,7 @@ library_dirs = []
 include_dirs = ['.']
 linker_args = []
 libraries = ['SDL2']
-cpp_args = ['-DCPYTHON_SDL']
+cpp_args = ['-DCPYTHON_FB']
 
 
 if sys.platform.startswith('win'):
@@ -103,7 +103,7 @@ else:
 
 # some paths/files we do not need to compile the source files for.
 IGNORE_DIRS = (
-    'disp', 'arm2d', 'gd32_ipa', 'nxp', 'stm32_dma2d', 'swm341_dma2d'
+    'arm2d', 'gd32_ipa', 'nxp', 'stm32_dma2d', 'swm341_dma2d'
 )
 IGNORE_FILES = ()
 

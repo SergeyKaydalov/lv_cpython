@@ -853,7 +853,7 @@
 
 /*Driver for /dev/fb*/
 
-#ifdef MICROPY_FB
+#ifdef CPYTHON_FB
     #define LV_USE_LINUX_FBDEV      1
 #else
     #define LV_USE_LINUX_FBDEV      0
